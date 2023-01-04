@@ -9,16 +9,18 @@
     2. postgres: Database instance, generated with "pizza_db" schema containing pre-seeded data from migrations
 
 3. Links:
+    For any of the available endpoints, we should send parameter on the body for filtering (being PizzaType optional):
+    - date_from
+    - date_to
+    - pizza_type
+    
    1. GraphQL (Apollo): http://localhost:8090/graphql
    2. Api Endpoints: http://localhost:8090/api
         1. http://localhost:8090/api/sales/by-date/ 
         2. http://localhost:8090/api/sales/by-date/by-week/
         3. http://localhost:8090/api/ingredients/by-date/
         4. http://localhost:8090/api/ingredients/by-date/by-week/
-    For any of the endpoints, we should send parameter on the body for filtering (being PizzaType optional):
-        1. date_from
-        2. date_to
-        3. pizza_type
+
 
 4. Inside apollo, we can find 4 pre-built queries aligned to the requisites:
     ```sh
