@@ -7,7 +7,7 @@ export class $name1672765988210 implements MigrationInterface {
         await queryRunner.query(`CREATE TABLE "unit" ("id" SERIAL NOT NULL, "description" character varying NOT NULL, CONSTRAINT "PK_4252c4be609041e559f0c80f58a" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "ingredient" ("id" SERIAL NOT NULL, "description" character varying NOT NULL, "cost" numeric NOT NULL, "unitId" integer, CONSTRAINT "PK_6f1e945604a0b59f56a57570e98" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "pizza_type" ("id" SERIAL NOT NULL, "description" character varying NOT NULL, "price" numeric NOT NULL, CONSTRAINT "PK_589be83ba47283eb9bd1bd464e8" PRIMARY KEY ("id"))`);
-        await queryRunner.query(`CREATE TABLE "order" ("id" SERIAL NOT NULL, "date" date NOT NULL, "qty" integer NOT NULL, "pizzaTypeId" integer, CONSTRAINT "PK_1031171c13130102495201e3e20" PRIMARY KEY ("id"))`);
+        await queryRunner.query(`CREATE TABLE "order" ("id" SERIAL NOT NULL, "date" timestamp NOT NULL, "qty" integer NOT NULL, "pizzaTypeId" integer, CONSTRAINT "PK_1031171c13130102495201e3e20" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "recipe" ("id" SERIAL NOT NULL, "qty" integer NOT NULL, "pizzaTypeId" integer, "ingredientId" integer, CONSTRAINT "PK_e365a2fedf57238d970e07825ca" PRIMARY KEY ("id"))`);
         await queryRunner.query(`ALTER TABLE "ingredient" ADD CONSTRAINT "FK_5c15451ee870cfe7294ee1b5946" FOREIGN KEY ("unitId") REFERENCES "unit"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "order" ADD CONSTRAINT "FK_69b63ef6cc3c8af36788885067e" FOREIGN KEY ("pizzaTypeId") REFERENCES "pizza_type"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);

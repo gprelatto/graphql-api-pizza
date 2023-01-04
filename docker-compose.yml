@@ -31,6 +31,6 @@ services:
       DB_DATABASE: pizza_db
       DB_SYNCHRONIZE: false
       DB_MIGRATIONS: true
-      DB_LOGGING: true
+      DB_LOGGING: false
 volumes:
   postgres:
