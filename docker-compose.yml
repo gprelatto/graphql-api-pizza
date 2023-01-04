@@ -11,5 +11,26 @@ services:
       - postgres:/var/lib/postgresql/data
     ports:
       - '5433:5432'
+  graphql:
+    image: node:latest
+    working_dir: "/var/api"
+    volumes:
+      - "./:/var/api"
+    ports:
+      - '8090:8090'
+    links:
+      - postgres      
+    command: [ "sh", "-c", "npm install; npm start"]
+    depends_on: 
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: db_user
+      DB_PASSWORD: db_password
+      DB_DATABASE: pizza_db
+      DB_SYNCHRONIZE: false
+      DB_MIGRATIONS: true
+      DB_LOGGING: true
 volumes:
   postgres:

@@ -10,7 +10,8 @@ import { GraphQLScalarType } from "graphql";
 import express from 'express';
 import salesRouter from "./routes/totalSalesDateRange";
 import ingredientsRouter from "./routes/totalIngredientsDateRange";
-const PORT = 8090
+
+const PORT = 8090;
 
 // Initializes the Datasource for TypeORM
 AppDataSource.initialize().then(async () => {
